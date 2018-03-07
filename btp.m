@@ -1,9 +1,9 @@
 clear all;
-subjects = 9;
+subjects = 1;
 ws=6;
 
 for sub = 1:subjects
-    k = get_input(sub);
-    F = preprocess(k);
-    [MD, xmean, xstd, ystd] = feature_extraction(F);    
+    [k,motion] = get_input(sub);
+    %F = preprocess(k,ws);
+    %MD, xmean, xstd, ystd] = feature_extraction(F);    
 end
