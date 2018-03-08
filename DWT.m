@@ -1,0 +1,12 @@
+function [x] = DWT(p);
+[ca1 cd1] = dwt(p, 'db4');
+[ca2 cd2] = dwt(ca1, 'db4');
+[ca3 cd3] = dwt(ca2, 'db4');
+[ca4 cd4] = dwt(ca3, 'db4');
+x1 = std(cd1);
+x2 = std(cd2);
+x3 = std(cd3);
+x4 = std(cd4);
+x5 = mean(cd1);
+x6 = mean(cd2);
+x = [x1 x2 x3 x4 x5 x6];
