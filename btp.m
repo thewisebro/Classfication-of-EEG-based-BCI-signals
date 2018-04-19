@@ -94,10 +94,13 @@ for sub = 1:subjects
     for trial = 1:2:5
         [sub trial]
         k = cnt{1,trial}.x;
+        F = preprocess(k,60);
         k = k(:,1:30);
         E = de_noise(k);
-        Y = pcm(E);
+        w = PCA(E);
+        Y = w(:, [1 2]);
         [x,y] = compress(Y, mrk{1,trial}.y);
+        %plot(x), title('Features extracted from the signals'), xlabel('time in milliseconds(ms)'), ylabel('amplitude in microVolts(uV)');
         x_val = [x_val; x];
         y_val = [y_val; y];
     end
